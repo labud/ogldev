@@ -20,6 +20,9 @@ Tutorial 04 - shaders
 
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
+#include <math.h>
+
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
@@ -27,6 +30,7 @@ Tutorial 04 - shaders
 #include "ogldev_math_3d.h"
 
 GLuint VBO;
+GLuint gScaleLocation;
 
 const char* pVSFileName = "shader.vs";
 const char* pFSFileName = "shader.fs";
@@ -34,6 +38,10 @@ const char* pFSFileName = "shader.fs";
 static void RenderSceneCB()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
+
+	static float Scale = 0.0f;
+	Scale += 0.001f;
+	glUniform1f(gScaleLocation, sinf(Scale));
 
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -50,6 +58,7 @@ static void RenderSceneCB()
 static void InitializeGlutCallbacks()
 {
 	glutDisplayFunc(RenderSceneCB);
+	glutIdleFunc(RenderSceneCB);
 }
 
 static void CreateVertexBuffer()
@@ -133,6 +142,9 @@ static void CompileShaders()
 	}
 
 	glUseProgram(ShaderProgram);
+
+	gScaleLocation = glGetUniformLocation(ShaderProgram, "gScale");
+	assert(gScaleLocation != 0xFFFFFFFF);
 }
 
 int main(int argc, char** argv)

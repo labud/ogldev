@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ConfigDir)\Include\assimp;$(ConfigDir)\Include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ConfigDir)\Include\assimp;$(ConfigDir)\Include\;$(ConfigDir)\Include\ImageMagick-6</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>

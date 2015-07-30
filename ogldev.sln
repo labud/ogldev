@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ogldev", "ogldev\ogldev.vcxproj", "{5C2BF6E6-3B66-4ADC-ADBE-87CC8D29BC97}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stb_image", "stb_image\stb_image.vcxproj", "{6D691A32-8A00-4049-8A35-C8BD6A4243ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{5C2BF6E6-3B66-4ADC-ADBE-87CC8D29BC97}.Debug|Win32.Build.0 = Debug|Win32
 		{5C2BF6E6-3B66-4ADC-ADBE-87CC8D29BC97}.Release|Win32.ActiveCfg = Release|Win32
 		{5C2BF6E6-3B66-4ADC-ADBE-87CC8D29BC97}.Release|Win32.Build.0 = Release|Win32
+		{6D691A32-8A00-4049-8A35-C8BD6A4243ED}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6D691A32-8A00-4049-8A35-C8BD6A4243ED}.Debug|Win32.Build.0 = Debug|Win32
+		{6D691A32-8A00-4049-8A35-C8BD6A4243ED}.Release|Win32.ActiveCfg = Release|Win32
+		{6D691A32-8A00-4049-8A35-C8BD6A4243ED}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

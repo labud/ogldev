@@ -26,11 +26,13 @@ Tutorial 12 - Perspective Projection
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
+
+#include "Texture.h"
+
 #include "ogldev_util.h"
 #include "ogldev_pipeline.h"
 #include "ogldev_glut_backend.h"
 #include "ogldev_camera.h"
-#include "ogldev_texture.h"
 
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 768
@@ -166,7 +168,7 @@ static void CreateCamera(){
 static int CreateTexture(){
 	glUniform1i(gSampler, 0);
 
-	pTexture = new Texture(GL_TEXTURE_2D, "/data/test.png");
+	pTexture = new Texture(GL_TEXTURE_2D, "data/test.png");
 
 	if (!pTexture->Load()) {
 		return 1;

@@ -21,6 +21,9 @@
     <ClCompile Include="Texture.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="lighting_technique.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Texture.h">
@@ -29,12 +32,21 @@
     <ClInclude Include="stb_image.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="lighting_technique.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.vs">
       <Filter>资源文件</Filter>
     </None>
     <None Include="shader.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="lighting.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="lighting.vs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

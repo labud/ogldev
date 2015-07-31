@@ -81,14 +81,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lighting_technique.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lighting_technique.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="lighting.fs" />
+    <None Include="lighting.vs" />
     <None Include="shader.fs" />
     <None Include="shader.vs" />
   </ItemGroup>

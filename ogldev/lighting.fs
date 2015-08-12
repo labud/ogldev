@@ -1,5 +1,6 @@
 #version 330
 
+out vec4 glPosition;
 in vec2 TexCoord0;
 in vec3 Normal0;                                                           
 in vec3 WorldPos0;                                                                          
@@ -13,7 +14,8 @@ struct DirectionalLight
     float DiffuseIntensity;                                                         
     vec3 Direction;                                                                 
 };                                                                                  
-                                                                                    
+
+                                                              
 uniform DirectionalLight gDirectionalLight;                                         
 uniform sampler2D gSampler;                                                   
 uniform vec3 gEyeWorldPos;                                                          
@@ -41,7 +43,8 @@ void main()
             SpecularFactor = pow(SpecularFactor, gSpecularPower);
             SpecularColor = vec4(gDirectionalLight.Color * gMatSpecularIntensity * SpecularFactor, 1.0f);
         }                                                                           
-    }                                                                                         
+    }             
+	//gl_Position = glPosition;
     FragColor = texture2D(gSampler, TexCoord0.xy) *                      
                 (AmbientColor + DiffuseColor + SpecularColor);                                   
 }

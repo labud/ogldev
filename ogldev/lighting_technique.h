@@ -34,7 +34,7 @@ public:
 
 	LightingTechnique();
 
-	virtual bool Init();
+	virtual bool Init(string  = "lighting.vs", string  = "lighting.fs");
 
 	void SetWVP(const Matrix4f& WVP);
 	void SetWorldMatrix(const Matrix4f& WVP);

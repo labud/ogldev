@@ -52,11 +52,11 @@ struct Vertex
 };
 
 
-class Tutorial17 : public ICallbacks, public OgldevApp
+class SystemClass : public ICallbacks, public OgldevApp
 {
 public:
 
-	Tutorial17()
+	SystemClass()
 	{
 		m_pGameCamera = NULL;
 		m_pTexture = NULL;
@@ -74,7 +74,7 @@ public:
 		m_persProjInfo.zFar = 100.0f;
 	}
 
-	~Tutorial17()
+	~SystemClass()
 	{
 		delete m_pEffect;
 		delete m_pGameCamera;
@@ -84,14 +84,14 @@ public:
 	bool Init()
 	{
 		Vector3f Pos(0.0f, 0.0f, -3.0f);
-		Vector3f Target(0.0f, 0.0f, 1.0f);
+		Vector3f Target(0.0f, 0.0f, 0.1f);
 		Vector3f Up(0.0, 1.0f, 0.0f);
 		m_pGameCamera = new Camera(WINDOW_WIDTH, WINDOW_HEIGHT, Pos, Target, Up);
 
 		unsigned int Indices[] = { 0, 3, 1,
 			1, 3, 2,
 			2, 3, 0,
-			1, 2, 0 };
+			1, 2, 0};
 
 		CreateIndexBuffer(Indices, sizeof(Indices));
 
@@ -128,7 +128,7 @@ public:
 
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		m_scale += 0.1f;
+		m_scale += 0.5f;
 
 		Pipeline p;
 		p.Rotate(0.0f, m_scale, 0.0f);
@@ -190,7 +190,7 @@ public:
 
 	virtual void PassiveMouseCB(int x, int y)
 	{
-		m_pGameCamera->OnMouse(x, y);
+		//m_pGameCamera->OnMouse(x, y);
 	}
 
 private:
@@ -256,11 +256,11 @@ int main(int argc, char** argv)
 {
 	GLUTBackendInit(argc, argv, false, false);
 
-	if (!GLUTBackendCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, false, "Tutorial 17")) {
+	if (!GLUTBackendCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, false, "OpenGL")) {
 		return 1;
 	}
 
-	Tutorial17* pApp = new Tutorial17();
+	SystemClass* pApp = new SystemClass();
 
 	if (!pApp->Init()) {
 		return 1;

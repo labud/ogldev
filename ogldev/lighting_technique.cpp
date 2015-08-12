@@ -23,17 +23,17 @@ LightingTechnique::LightingTechnique()
 {
 }
 
-bool LightingTechnique::Init()
+bool LightingTechnique::Init(string vsFile, string psFile )
 {
 	if (!Technique::Init()) {
 		return false;
 	}
 
-	if (!AddShader(GL_VERTEX_SHADER, "lighting.vs")) {
+	if (!AddShader(GL_VERTEX_SHADER, vsFile.c_str() )) {
 		return false;
 	}
 
-	if (!AddShader(GL_FRAGMENT_SHADER, "lighting.fs")) {
+	if (!AddShader(GL_FRAGMENT_SHADER, psFile.c_str() )) {
 		return false;
 	}
 

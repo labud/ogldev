@@ -99,8 +99,9 @@ public:
 
 		m_pEffect = new LightingTechnique();
 
-		if (!m_pEffect->Init())
+		if (!m_pEffect->Init("data/GLSL_vs.vs", "data/GLSL_fs.fs"))
 		{
+			getchar();
 			return false;
 		}
 

@@ -19,6 +19,8 @@ Tutorial 17 - Ambient Lighting
 */
 
 #include <math.h>
+#include <fstream>
+#include <iostream>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
@@ -93,7 +95,7 @@ public:
 			2, 3, 0,
 			1, 2, 0};
 
-		CreateIndexBuffer(Indices, sizeof(Indices));
+		CreateIndexBuffer(Indices, sizeof(Indices));//sizeof(Indices));
 
 		CreateVertexBuffer(Indices, ARRAY_SIZE_IN_ELEMENTS(Indices));
 
@@ -133,7 +135,7 @@ public:
 
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		m_scale += 0.5f;
+		m_scale -= 0.82f;
 
 		Pipeline p;
 		p.Rotate(0.0f, m_scale, 0.0f);
@@ -221,13 +223,23 @@ private:
 		for (unsigned int i = 0; i < VertexCount; i++) {
 			pVertices[i].m_normal.Normalize();
 		}
+
+		fstream fin;
+		fin.open("data/in.txt");
+		for (int i = 0; i < IndexCount; ++i){
+			int t = pIndices[i];
+			fin << pVertices[t].m_pos.x << " " << pVertices[t].m_pos.y << " " << pVertices[t].m_pos.z << " ";
+			fin << pVertices[t].m_tex.x << " " << pVertices[t].m_tex.y << " ";
+			fin << pVertices[t].m_normal.x << " " << pVertices[t].m_normal.y << " " << pVertices[t].m_normal.z << endl;
+		}
+		fin.close();
 	}
 
 	void CreateVertexBuffer(const unsigned int* pIndices, unsigned int IndexCount)
 	{
-		Vertex Vertices[4] = { Vertex(Vector3f(-1.0f, -1.0f, 0.5773f), Vector2f(0.0f, 0.0f)),
-			Vertex(Vector3f(0.0f, -1.0f, -1.15475f), Vector2f(0.5f, 0.0f)),
-			Vertex(Vector3f(1.0f, -1.0f, 0.5773f), Vector2f(1.0f, 0.0f)),
+		Vertex Vertices[4] = { Vertex(Vector3f(-1.0f, -1.0f, 1.0f), Vector2f(0.0f, 0.0f)),
+			Vertex(Vector3f(0.0f, -1.0f, -1.0f), Vector2f(0.5f, 0.0f)),
+			Vertex(Vector3f(1.0f, -1.0f, 1.0f), Vector2f(1.0f, 0.0f)),
 			Vertex(Vector3f(0.0f, 1.0f, 0.0f), Vector2f(0.5f, 1.0f)) };
 
 		unsigned int VertexCount = ARRAY_SIZE_IN_ELEMENTS(Vertices);
@@ -261,7 +273,7 @@ int main(int argc, char** argv)
 {
 	GLUTBackendInit(argc, argv, false, false);
 
-	if (!GLUTBackendCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, false, "OpenGL")) {
+	if (!GLUTBackendCreateWindow(800, 600, false, "OpenGL")) {
 		return 1;
 	}
 

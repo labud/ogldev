@@ -99,7 +99,11 @@ public:
 
 		m_pEffect = new LightingTechnique();
 
-		if (!m_pEffect->Init("data/GLSL_vs.vs", "data/GLSL_fs.fs"))
+		ShaderGenerator* sg = new ShaderGenerator();
+		string vsfile = sg->convert2GLSL("data/MidSL.vs", "data/GLSL.vs");
+		string fsfile = sg->convert2GLSL("data/MidSL.ps", "data/GLSL.ps");
+
+		if (!m_pEffect->Init(vsfile, fsfile))
 		{
 			getchar();
 			return false;

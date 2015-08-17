@@ -83,10 +83,12 @@
   <ItemGroup>
     <ClCompile Include="lighting_technique.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ShaderGenerator.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lighting_technique.h" />
+    <ClInclude Include="ShaderGenerator.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
